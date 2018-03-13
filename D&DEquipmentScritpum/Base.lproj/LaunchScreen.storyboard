@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchBG" translatesAutoresizingMaskIntoConstraints="NO" id="gHp-EM-h2F">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DragonLaunchBG" translatesAutoresizingMaskIntoConstraints="NO" id="TUN-1y-gbD">
+                                <rect key="frame" x="0.0" y="156" width="375" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="hk4-qi-IYP"/>
+                                    <constraint firstAttribute="height" constant="500" id="kB4-PN-Wtw"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="D&amp;DLaunchBGIcon" translatesAutoresizingMaskIntoConstraints="NO" id="NtK-R3-yk3">
+                                <rect key="frame" x="-21.666666666666657" y="197" width="418.33333333333326" height="418"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="418" id="CSJ-3O-ehE"/>
+                                    <constraint firstAttribute="width" constant="418" id="pbc-ht-bky"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NtK-R3-yk3" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="3fw-eR-e8m"/>
+                            <constraint firstItem="TUN-1y-gbD" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="HBg-ua-M4P"/>
+                            <constraint firstItem="NtK-R3-yk3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="LAh-hJ-Y8N"/>
+                            <constraint firstAttribute="bottom" secondItem="gHp-EM-h2F" secondAttribute="bottom" id="c1t-n8-6MB"/>
+                            <constraint firstItem="gHp-EM-h2F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hDn-F2-jbb"/>
+                            <constraint firstItem="gHp-EM-h2F" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="lWk-QG-OEa"/>
+                            <constraint firstItem="TUN-1y-gbD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="nLI-pN-hZa"/>
+                            <constraint firstItem="gHp-EM-h2F" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sdk-nc-Id4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="374.6305418719212"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="D&amp;DLaunchBGIcon" width="398" height="386"/>
+        <image name="DragonLaunchBG" width="375" height="499"/>
+        <image name="LaunchBG" width="375" height="812"/>
+    </resources>
+</document>
