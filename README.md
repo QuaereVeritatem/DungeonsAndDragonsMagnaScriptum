@@ -1,0 +1,2 @@
+# DungeonsAndDragonsMagnaScriptum
+The Dungeons and Dragons: Magna Scriptum, is an app that uses the awesome, D&amp;D API (http://www.dnd5eapi.co) to pull information about the Armor, Ammunitions, Magic, Adventure Gear and Transport options in the D&amp;D 5th edition game. This API/App includes equipment only. (Not including weapons)[The UI has been designed for the iPhone X ONLY as of this time] This is part 3 of a 4 part series of apps that will use the D&amp;D API. Look forward to the others coming soon!
