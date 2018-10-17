@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3722063C2172BD89001017C1 /* AdvenGearModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722063B2172BD89001017C1 /* AdvenGearModel.swift */; };
+		3722063E2172BD98001017C1 /* MagicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3722063D2172BD98001017C1 /* MagicModel.swift */; };
 		373DD68020280131001C84A2 /* JSONOrderBreakdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373DD67F20280131001C84A2 /* JSONOrderBreakdown.swift */; };
 		373DD6AD2033CF25001C84A2 /* Neometric-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 373DD6AC2033CF24001C84A2 /* Neometric-Medium.otf */; };
 		373DD6EE203BA27C001C84A2 /* ArmorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373DD6ED203BA27C001C84A2 /* ArmorViewController.swift */; };
@@ -35,6 +37,8 @@
 		377CBA8D2016BA7D0081E445 /* TODO List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377CBA8C2016BA7D0081E445 /* TODO List.swift */; };
 		377CBA922016C69B0081E445 /* EquipmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377CBA912016C69B0081E445 /* EquipmentModel.swift */; };
 		377CBA992016CC2E0081E445 /* BaseUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377CBA982016CC2E0081E445 /* BaseUrl.swift */; };
+		37D62E10209166680002AC28 /* MountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D62E0F209166680002AC28 /* MountModel.swift */; };
+		37D62E122092B9610002AC28 /* TabItemJSONRanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D62E112092B9610002AC28 /* TabItemJSONRanges.swift */; };
 		37E5E90520569CAC00E83D6F /* AmmoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E5E90420569CAC00E83D6F /* AmmoModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3722063B2172BD89001017C1 /* AdvenGearModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvenGearModel.swift; sourceTree = "<group>"; };
+		3722063D2172BD98001017C1 /* MagicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicModel.swift; sourceTree = "<group>"; };
 		373DD67F20280131001C84A2 /* JSONOrderBreakdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONOrderBreakdown.swift; sourceTree = "<group>"; };
 		373DD6AC2033CF24001C84A2 /* Neometric-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Neometric-Medium.otf"; path = "../../../DandDWeaponCodexGithub/D&DWeaponCodex/Resources/Neometric-Medium.otf"; sourceTree = "<group>"; };
 		373DD6ED203BA27C001C84A2 /* ArmorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +96,8 @@
 		377CBA8C2016BA7D0081E445 /* TODO List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TODO List.swift"; sourceTree = "<group>"; };
 		377CBA912016C69B0081E445 /* EquipmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentModel.swift; sourceTree = "<group>"; };
 		377CBA982016CC2E0081E445 /* BaseUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrl.swift; sourceTree = "<group>"; };
+		37D62E0F209166680002AC28 /* MountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountModel.swift; sourceTree = "<group>"; };
+		37D62E112092B9610002AC28 /* TabItemJSONRanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemJSONRanges.swift; sourceTree = "<group>"; };
 		37E5E90420569CAC00E83D6F /* AmmoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmmoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,6 +232,7 @@
 				377CBA582016B90C0081E445 /* AppDelegate.swift */,
 				377CBA982016CC2E0081E445 /* BaseUrl.swift */,
 				373DD67F20280131001C84A2 /* JSONOrderBreakdown.swift */,
+				37D62E112092B9610002AC28 /* TabItemJSONRanges.swift */,
 				373DD6AC2033CF24001C84A2 /* Neometric-Medium.otf */,
 			);
 			path = Resources;
@@ -275,6 +284,9 @@
 			children = (
 				377CBA912016C69B0081E445 /* EquipmentModel.swift */,
 				37E5E90420569CAC00E83D6F /* AmmoModel.swift */,
+				37D62E0F209166680002AC28 /* MountModel.swift */,
+				3722063B2172BD89001017C1 /* AdvenGearModel.swift */,
+				3722063D2172BD98001017C1 /* MagicModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -461,13 +473,16 @@
 				377CBA922016C69B0081E445 /* EquipmentModel.swift in Sources */,
 				373DD701203BA483001C84A2 /* MagicDetailViewController.swift in Sources */,
 				373DD68020280131001C84A2 /* JSONOrderBreakdown.swift in Sources */,
+				3722063C2172BD89001017C1 /* AdvenGearModel.swift in Sources */,
 				373DD70B203BAE7F001C84A2 /* MagicTableViewCell.swift in Sources */,
 				37E5E90520569CAC00E83D6F /* AmmoModel.swift in Sources */,
+				3722063E2172BD98001017C1 /* MagicModel.swift in Sources */,
 				377CBA612016B90C0081E445 /* D_DEquipmentScritpum.xcdatamodeld in Sources */,
 				373DD6F6203BA2D7001C84A2 /* TransportViewController.swift in Sources */,
 				373DD6EE203BA27C001C84A2 /* ArmorViewController.swift in Sources */,
 				377CBA5B2016B90C0081E445 /* ViewController.swift in Sources */,
 				373DD6F2203BA2AD001C84A2 /* MagicViewController.swift in Sources */,
+				37D62E122092B9610002AC28 /* TabItemJSONRanges.swift in Sources */,
 				377CBA992016CC2E0081E445 /* BaseUrl.swift in Sources */,
 				373DD6F4203BA2BA001C84A2 /* AdventureViewController.swift in Sources */,
 				373DD70D203BAE91001C84A2 /* AdventureTableViewCell.swift in Sources */,
@@ -477,6 +492,7 @@
 				373DD703203BA499001C84A2 /* AdventureDetailViewController.swift in Sources */,
 				373DD6FF203BA459001C84A2 /* AmmoDetailViewController.swift in Sources */,
 				373DD705203BA531001C84A2 /* TransportDetailViewController.swift in Sources */,
+				37D62E10209166680002AC28 /* MountModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,15 @@ import UIKit
 
 class MagicTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
+  @IBOutlet weak var magicPic: UIImageView!
+  @IBOutlet weak var magicName: UILabel!
+  @IBOutlet weak var magicCategory: UILabel!
+  @IBOutlet weak var magicWeight: UILabel!
+  @IBOutlet weak var magicCostAndCoinType: UILabel!
+  @IBOutlet weak var magicItemNum: UILabel!
+  
+  
+  override func awakeFromNib() {
         super.awakeFromNib()
     }
 

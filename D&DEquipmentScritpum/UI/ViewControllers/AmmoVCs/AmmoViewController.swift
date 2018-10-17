@@ -17,8 +17,8 @@ class AmmoViewController: UIViewController, UITableViewDataSource, UITableViewDe
   
     override func viewDidLoad() {
         super.viewDidLoad()
-      for loopCount in 53...56 {
-        let urlString = BaseUrl + "/" + "\(loopCount + 1)"
+      for loopCount in ammoTabArray {
+        let urlString = BaseUrl + "/" + "\(loopCount)"
         // ****  optional at end will cause program to crash!!!!
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in

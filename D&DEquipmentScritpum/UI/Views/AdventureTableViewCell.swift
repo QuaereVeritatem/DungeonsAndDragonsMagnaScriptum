@@ -9,7 +9,13 @@
 import UIKit
 
 class AdventureTableViewCell: UITableViewCell {
-
+  @IBOutlet weak var adventurePic: UIImageView!
+  @IBOutlet weak var adventureName: UILabel!
+  @IBOutlet weak var adventureCategory: UILabel!
+  @IBOutlet weak var adventureWeight: UILabel!
+  @IBOutlet weak var adventureCost: UILabel!
+  @IBOutlet weak var adventureItemNum: UILabel!
+  
     override func awakeFromNib() {
         super.awakeFromNib()
     }

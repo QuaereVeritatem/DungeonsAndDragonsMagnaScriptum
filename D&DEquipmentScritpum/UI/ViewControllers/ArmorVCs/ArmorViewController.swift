@@ -18,8 +18,8 @@ class ArmorViewController: UIViewController, UITableViewDataSource, UITableViewD
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    for loopCount in 37...49 {
-      let urlString = BaseUrl + "/" + "\(loopCount + 1)"
+    for loopCount in armorTabArray { // armorTabArray
+      let urlString = BaseUrl + "/" + "\(loopCount)"
       // ****  optional at end will cause program to crash!!!!
       guard let url = URL(string: urlString) else { return }
       URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -57,7 +57,7 @@ class ArmorViewController: UIViewController, UITableViewDataSource, UITableViewD
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "armorCellReuseIdentifier") as! ArmorTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "armorCellReuseIdentifier") as! ArmorTableViewCell   
     if aMod.count != 13 {
       // do nothing, JSON hasnt loaded yet
     } else {
