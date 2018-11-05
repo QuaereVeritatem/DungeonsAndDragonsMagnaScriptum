@@ -68,6 +68,15 @@ class AdventureViewController: UIViewController, UITableViewDataSource, UITableV
       
       cell.adventureName.text! = advMod[indexPath.row].name
       //cell.adventurePic.image = UIImage(imageLiteralResourceName: "\(advMod[indexPath.row].name)")
+      switch advMod[indexPath.row].name {
+      case "Acid (vial)":
+        cell.adventurePic.image = UIImage(imageLiteralResourceName: "acidvial")
+      case "Perfume (vial)":
+        cell.adventurePic.image = UIImage(imageLiteralResourceName: "perfumevial")
+      
+      default:
+        cell.adventurePic.image = UIImage(imageLiteralResourceName: "2ndPagePicPlaceHolder")
+      }
       if let gc = advMod[indexPath.row].gearCat {
          cell.adventureCategory.text! = gc   //this could be nil!
       }
@@ -75,7 +84,7 @@ class AdventureViewController: UIViewController, UITableViewDataSource, UITableV
          cell.adventureWeight.text! = String(describing:aw)
       }
       cell.adventureCost.text! = String(describing: advMod[indexPath.row].cost.quantity) + " " + advMod[indexPath.row].cost.unit
-      cell.adventureItemNum.text! = String(describing: advMod[indexPath.row].index)
+      cell.adventureItemNum.text! = "#" + String(describing: advMod[indexPath.row].index)
       
     }
     return cell
@@ -85,7 +94,7 @@ class AdventureViewController: UIViewController, UITableViewDataSource, UITableV
     let adv2Send = advMod[indexPath.row]
     tempMod.append(adv2Send)
     self.advMod[indexPath.row] = adv2Send
-    // self.performSegue(withIdentifier: "armor2ArmorDetailSegue", sender: self)
+    self.performSegue(withIdentifier: "adv2AdvDetailSegue", sender: self)
   }
   
   // MARK: - Segue
@@ -94,7 +103,7 @@ class AdventureViewController: UIViewController, UITableViewDataSource, UITableV
   override func prepare(for segue: UIStoryboardSegue, sender: Any? ) {
     if segue.destination is AdventureDetailViewController {
       let vc = segue.destination as? AdventureDetailViewController
-      // vc?.aMod.append(tempMod.last!)
+      vc?.aMod.append(tempMod.last!)
     }
   }
 

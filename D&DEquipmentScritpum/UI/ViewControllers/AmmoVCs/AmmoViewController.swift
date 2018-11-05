@@ -73,7 +73,7 @@ class AmmoViewController: UIViewController, UITableViewDataSource, UITableViewDe
       cell.ammoWeight.text! = String(describing: aMod[indexPath.row].weight)
       cell.ammoNumCost.text! = String(describing: aMod[indexPath.row].cost.quantity)
       cell.ammoCostCoinType.text! = aMod[indexPath.row].cost.unit
-      cell.ammoItemNum.text! = String(describing: aMod[indexPath.row].index)
+      cell.ammoItemNum.text! = "#" + String(describing: aMod[indexPath.row].index)
     }
     return cell
   }
@@ -82,7 +82,7 @@ class AmmoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let ammo2Send = aMod[indexPath.row]
     tempMod.append(ammo2Send)
     self.aMod[indexPath.row] = ammo2Send
-   // self.performSegue(withIdentifier: "armor2ArmorDetailSegue", sender: self)
+    self.performSegue(withIdentifier: "ammo2AmmoDetailSegue", sender: self)
   }
   
   // MARK: - Segue
@@ -91,7 +91,7 @@ class AmmoViewController: UIViewController, UITableViewDataSource, UITableViewDe
   override func prepare(for segue: UIStoryboardSegue, sender: Any? ) {
     if segue.destination is AmmoDetailViewController {
       let vc = segue.destination as? AmmoDetailViewController
-      // vc?.aMod.append(tempMod.last!)
+      vc?.aMod.append(tempMod.last!)
     }
   }
 

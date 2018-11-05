@@ -63,12 +63,42 @@ class ArmorViewController: UIViewController, UITableViewDataSource, UITableViewD
     } else {
       cell.armorName.text! = aMod[indexPath.row].name
       // this needs to be set to indexpath.row so its not always the same pic!!
+      switch aMod[indexPath.row].name {
+      case "Hide":
       cell.armorPic.image = UIImage(imageLiteralResourceName: "hide")
+      case "Leather":
+      cell.armorPic.image = UIImage(imageLiteralResourceName: "leather")
+      case "Padded":
+      cell.armorPic.image = UIImage(imageLiteralResourceName: "padded")
+      case "Studded Leather":
+      cell.armorPic.image = UIImage(imageLiteralResourceName: "studdedleather")
+      case "Half Plate":
+      cell.armorPic.image = UIImage(imageLiteralResourceName: "halfplate")
+      case "Chain Shirt":
+      cell.armorPic.image = UIImage(imageLiteralResourceName: "chainshirt")
+      case "Scale Mail":
+      cell.armorPic.image = UIImage(imageLiteralResourceName: "scalemail")
+      case "Breastplate":
+      cell.armorPic.image = UIImage(imageLiteralResourceName: "breastplate")
+      case "Plate":
+      cell.armorPic.image = UIImage(imageLiteralResourceName: "plate")
+      case "Chain Mail":
+      cell.armorPic.image = UIImage(imageLiteralResourceName: "chainmail")
+      case "Splint":
+      cell.armorPic.image = UIImage(imageLiteralResourceName: "splint")
+      case "Ring Mail":
+      cell.armorPic.image = UIImage(imageLiteralResourceName: "ringmail")
+      case "Shield":
+      cell.armorPic.image = UIImage(imageLiteralResourceName: "shield")
+      default:
+      cell.armorPic.image = UIImage(imageLiteralResourceName: "hide")
+    }
+      //cell.armorPic.image = UIImage(imageLiteralResourceName: "hide")
       cell.armorCategory.text! = aMod[indexPath.row].armorCat
       cell.armorWeight.text! = String(describing: aMod[indexPath.row].weight)
       cell.armorNumCost.text! = String(describing: aMod[indexPath.row].cost.quantity)
       cell.armorCostCoinType.text! = aMod[indexPath.row].cost.unit
-      cell.armorItemNum.text! = String(describing: aMod[indexPath.row].index)
+      cell.armorItemNum.text! = "#" + String(describing: aMod[indexPath.row].index)
     }
     return cell
   }

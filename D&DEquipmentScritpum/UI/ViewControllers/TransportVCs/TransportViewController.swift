@@ -71,34 +71,79 @@ class TransportViewController: UIViewController, UITableViewDelegate, UITableVie
       cell.transportName.text! = mMod[indexPath.row].name
         // this needs to be set to indexpath.row so its not always the same pic!!
         // cell.transportPic.image = UIImage(imageLiteralResourceName: "\(mEqMod[indexPath.row].name)")
+      switch mMod[indexPath.row].name {
+      case "Camel":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "camel")
+      case "Mule":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "mule")
+      case "Carriage":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "carriage")
+      case "Chariot":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "chariot")
+      case "Donkey":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "donkey")
+      case "Horse, draft":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "drafthorse")
+      case "Elephant":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "elephant")
+      case "Horse":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "horse")
+      case "Cart":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "horsecart")
+      case "Mastiff":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "mastiff")
+      case "Pony":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "pony")
+      case "Horse, riding":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "ridinghorse")
+      case "Sled":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "sled")
+      case "Wagon":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "wagon")
+      case "Warhorse":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "warhorse")
+      case "Keelboat":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "keelboat")
+      case "Longship":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "longship")
+      case "Rowboat":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "rowboat")
+      case "Sailing ship":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "sailingship")
+      case "Warship":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "warship")
+      case "Galley":
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "galley")
+      default:
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "2ndPagePicPlaceHolder")
+      }
       cell.transportCategory.text! = mMod[indexPath.row].vehCat
       
+      //Weight is an integer and Capacity is string
       if let tw = mMod[indexPath.row].weight {
          cell.transportWeight.text! = String(describing: tw)
       } else {
         if let cw = mMod[indexPath.row].capacity {
-            cell.transportWeight.text! = String(describing: cw)
+            cell.transportWeight.text! = cw
         }
       }
       
       if let ts = mMod[indexPath.row].speed {
-         cell.transportSpeed.text! = String(describing: ts)
+         cell.transportSpeed.text! = String(describing: ts.quantity) + " " + String(describing: ts.unit)
       }
       cell.transportNumCostAndCoinType.text! = String(describing: mMod[indexPath.row].cost.quantity) + " " + mMod[indexPath.row].cost.unit
-        cell.transportItemNum.text! = String(describing: mMod[indexPath.row].index)
-
+      cell.transportItemNum.text! = "#" + String(describing: mMod[indexPath.row].index)
     }
     return cell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     //determine top of model here with if statement  *******
-    /*
-    let ammo2Send = mMod[indexPath.row]
-    tempMod.append(ammo2Send)
-    self.mMod[indexPath.row] = ammo2Send
-    // self.performSegue(withIdentifier: "transport2TransportDetailSegue", sender: self)
- */
+    let tran2Send = mMod[indexPath.row]
+    tempMod.append(tran2Send)
+    self.mMod[indexPath.row] = tran2Send
+    self.performSegue(withIdentifier: "transport2TransportDetailSegue", sender: self)
+
   }
 
   // MARK: - Segue
@@ -107,7 +152,7 @@ class TransportViewController: UIViewController, UITableViewDelegate, UITableVie
   override func prepare(for segue: UIStoryboardSegue, sender: Any? ) {
     if segue.destination is TransportDetailViewController {
       let vc = segue.destination as? TransportDetailViewController
-      // vc?.aMod.append(tempMod.last!)
+      vc?.aMod.append(tempMod.last!)
     }
   }
 

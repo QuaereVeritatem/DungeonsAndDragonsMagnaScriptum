@@ -28,8 +28,38 @@ class ArmorDetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     if let className = aMod.last?.name {
-      page2ArmorPic.image! = UIImage(imageLiteralResourceName: "hide")
-      page2ArmorIndexNum.text! = String(describing: aMod[0].index)
+      switch aMod.last?.name {
+      case "Hide":
+        page2ArmorPic.image! = UIImage(imageLiteralResourceName: "hide")
+      case "Leather":
+        page2ArmorPic.image! = UIImage(imageLiteralResourceName: "leather")
+      case "Padded":
+        page2ArmorPic.image! = UIImage(imageLiteralResourceName: "padded")
+      case "Studded Leather":
+        page2ArmorPic.image! = UIImage(imageLiteralResourceName: "studdedleather")
+      case "Half Plate":
+        page2ArmorPic.image! = UIImage(imageLiteralResourceName: "halfplate")
+      case "Chain Shirt":
+        page2ArmorPic.image! = UIImage(imageLiteralResourceName: "chainshirt")
+      case "Scale Mail":
+        page2ArmorPic.image! = UIImage(imageLiteralResourceName: "scalemail")
+      case "Breastplate":
+        page2ArmorPic.image! = UIImage(imageLiteralResourceName: "breastplate")
+      case "Plate":
+        page2ArmorPic.image! = UIImage(imageLiteralResourceName: "plate")
+      case "Chain Mail":
+        page2ArmorPic.image! = UIImage(imageLiteralResourceName: "chainmail")
+      case "Splint":
+        page2ArmorPic.image! = UIImage(imageLiteralResourceName: "splint")
+      case "Ring Mail":
+        page2ArmorPic.image! = UIImage(imageLiteralResourceName: "ringmail")
+      case "Shield":
+        page2ArmorPic.image! = UIImage(imageLiteralResourceName: "shield")
+      default:
+        page2ArmorPic.image! = UIImage(imageLiteralResourceName: "hide")
+      }
+      //page2ArmorPic.image! = UIImage(imageLiteralResourceName: "hide")
+      page2ArmorIndexNum.text! = "#" + String(describing: aMod[0].index)
       page2ArmorName.text! = aMod[0].name
       page2EquipType.text! = aMod[0].equipCat
       page2ArmorType.text! = aMod[0].armorCat

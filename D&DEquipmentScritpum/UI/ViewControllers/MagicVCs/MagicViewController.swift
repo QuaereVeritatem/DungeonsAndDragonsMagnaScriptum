@@ -68,11 +68,45 @@ class MagicViewController: UIViewController, UITableViewDataSource, UITableViewD
       
       cell.magicName.text! = mMod[indexPath.row].name
       // this needs to be set to indexpath.row so its not always the same pic!!
+      switch mMod[indexPath.row].name {
+      case "Orb":
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "orb")
+      case "Crystal":
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "crystal")
+      case "Amulet":
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "amulet")
+      case "Rod":
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "rod")
+      case "Sprig of mistletoe":
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "sprigofmistletoe")
+      case "Wand":
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "wand")
+      case "Staff":
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "staff")
+      case "Totem":
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "totem")
+      case "Holy water (flask)":
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "holywaterflask")
+      case "Yew wand":
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "yewwand")
+      case "Wooden staff":
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "woodenstaff")
+      case "Emblem":
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "emblem")
+      case "Reliquary":
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "reliquary")
+      case "Potion of healing":
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "healingpotion")
+      case "Spellbook":
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "spellbook")
+      default:
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "orb")
+      }
       //cell.magicPic.image = UIImage(imageLiteralResourceName: "\(mMod[indexPath.row].name)")
       cell.magicCategory.text! = mMod[indexPath.row].gearCat
       cell.magicWeight.text! = String(describing: mMod[indexPath.row].weight)
       cell.magicCostAndCoinType.text! = String(describing: mMod[indexPath.row].cost.quantity) + " " + mMod[indexPath.row].cost.unit
-      cell.magicItemNum.text! = String(describing: mMod[indexPath.row].index)
+      cell.magicItemNum.text! = "#" + String(describing: mMod[indexPath.row].index)
  
     }
     return cell
@@ -82,7 +116,7 @@ class MagicViewController: UIViewController, UITableViewDataSource, UITableViewD
     let magic2Send = mMod[indexPath.row]
     tempMod.append(magic2Send)
     self.mMod[indexPath.row] = magic2Send
-    // self.performSegue(withIdentifier: "armor2ArmorDetailSegue", sender: self)
+    self.performSegue(withIdentifier: "magic2MagicDetailSegue", sender: self)
   }
   
   // MARK: - Segue
@@ -91,7 +125,7 @@ class MagicViewController: UIViewController, UITableViewDataSource, UITableViewD
   override func prepare(for segue: UIStoryboardSegue, sender: Any? ) {
     if segue.destination is MagicDetailViewController {
       let vc = segue.destination as? MagicDetailViewController
-      // vc?.aMod.append(tempMod.last!)
+      vc?.aMod.append(tempMod.last!)
     }
   }
 

@@ -10,10 +10,39 @@ import UIKit
 
 class AdventureDetailViewController: UIViewController {
 
+  var aMod = [AdvenGear]()
+  @IBOutlet weak var page2AdvPic: UIImageView!
+  @IBOutlet weak var page2AdvIndexNum: UILabel!
+  @IBOutlet weak var page2AdvName: UILabel!
+  @IBOutlet weak var page2AdvEquipType: UILabel!
+  @IBOutlet weak var page2AdvSubEquipType: UILabel!
+  @IBOutlet weak var page2AdvWeightNum: UILabel!
+  @IBOutlet weak var page2AdvCostNum: UILabel!
+  @IBOutlet weak var page2AdvCostUnit: UILabel!
+  @IBOutlet weak var page2AdvDesc: UITextView!
+  
+  
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+      super.viewDidLoad()
+      if let className = aMod.last?.name {
+        //page2AdvPic.image! = UIImage(imageLiteralResourceName: "hide")
+        switch aMod.last?.name {
+        case "Acid (vial)":
+          page2AdvPic.image! = UIImage(imageLiteralResourceName: "acidvial")
+        case "Perfume (vial)":
+          page2AdvPic.image! = UIImage(imageLiteralResourceName: "leaperfumevialther")
+        
+        default:
+          page2AdvPic.image! = UIImage(imageLiteralResourceName: "2ndPagePicPlaceHolder")
+        }
+        page2AdvIndexNum.text! = "#" + String(describing: aMod[0].index)
+        page2AdvName.text! = aMod[0].name
+        page2AdvEquipType.text! = aMod[0].equipCat
+        page2AdvSubEquipType.text! = aMod[0].gearCat!
+        page2AdvWeightNum.text! = String(describing: aMod[0].weight)
+        page2AdvCostNum.text! = String(describing: aMod[0].cost.quantity)
+        page2AdvCostUnit.text! = aMod[0].cost.unit
+      }
     }
 
     override func didReceiveMemoryWarning() {
