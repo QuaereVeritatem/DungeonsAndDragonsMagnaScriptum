@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZkK-W3-Sc1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZkK-W3-Sc1">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -216,7 +216,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L1C-c0-SdE"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Armor" image="armorIcon-new" id="6N6-0p-htn"/>
+                    <navigationItem key="navigationItem" id="6jx-27-sQi"/>
                     <connections>
                         <outlet property="tableView" destination="Nad-zr-bZj" id="g3R-Fd-7iW"/>
                         <segue destination="rGf-B3-9G4" kind="show" identifier="armor2ArmorDetailSegue" id="QSN-IY-aK2"/>
@@ -224,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gsg-oj-phk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712.79999999999995" y="-1307.1428571428571"/>
+            <point key="canvasLocation" x="1655.2" y="-1307.1428571428571"/>
         </scene>
         <!--ArmorDetailViewController-->
         <scene sceneID="CDg-hP-CLh">
@@ -244,9 +244,6 @@
                                     <constraint firstAttribute="height" constant="30" id="VVM-wv-bP3"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="2ndPageBackArrowButton"/>
-                                <connections>
-                                    <segue destination="ZkK-W3-Sc1" kind="show" id="0Qm-ox-08f"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2ndPagePicPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="6iK-5p-jtZ">
                                 <rect key="frame" x="20" y="123" width="112" height="112"/>
@@ -531,7 +528,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ip4-TF-3qN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928.8" y="-1307.1428571428571"/>
+            <point key="canvasLocation" x="2871.1999999999998" y="-1307.1428571428571"/>
         </scene>
         <!--AmmoViewController-->
         <scene sceneID="AL9-OR-v66">
@@ -729,15 +726,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="haO-th-Zaz"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Ammo" image="ammoIcon" id="USG-J8-qto"/>
+                    <navigationItem key="navigationItem" id="cgP-MB-vUh"/>
                     <connections>
                         <outlet property="tableView" destination="mX9-Cs-Oef" id="XKp-ae-v0W"/>
-                        <segue destination="8Dn-Rq-GFl" kind="showDetail" identifier="ammo2AmmoDetailSegue" id="Skc-8B-ECV"/>
+                        <segue destination="8Dn-Rq-GFl" kind="show" identifier="ammo2AmmoDetailSegue" id="Skc-8B-ECV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59w-62-P2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712.79999999999995" y="-591.13300492610836"/>
+            <point key="canvasLocation" x="1655.2" y="-591.13300492610836"/>
         </scene>
         <!--AmmoDetailViewController-->
         <scene sceneID="5Fy-bi-NTi">
@@ -778,9 +775,6 @@
                                     <constraint firstAttribute="width" constant="58" id="qnq-bn-K1O"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="2ndPageBackArrowButton"/>
-                                <connections>
-                                    <segue destination="ZkK-W3-Sc1" kind="show" id="7Xb-2K-aN2"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AmmoName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qy4-tJ-2Lc">
                                 <rect key="frame" x="177" y="135" width="95" height="21"/>
@@ -885,7 +879,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcY-dA-omK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928.8" y="-591.13300492610836"/>
+            <point key="canvasLocation" x="2871.1999999999998" y="-591.13300492610836"/>
         </scene>
         <!--MagicViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -1060,15 +1054,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Magic" image="MagicIcon" id="UWL-wk-0F9"/>
+                    <navigationItem key="navigationItem" id="ehG-bJ-IRe"/>
                     <connections>
                         <outlet property="tableView" destination="OoS-Ef-Gba" id="o4K-Oe-0GV"/>
-                        <segue destination="WV4-9U-Ded" kind="showDetail" identifier="magic2MagicDetailSegue" id="4wt-ep-n0M"/>
+                        <segue destination="WV4-9U-Ded" kind="show" identifier="magic2MagicDetailSegue" id="4wt-ep-n0M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712.79999999999995" y="131.52709359605913"/>
+            <point key="canvasLocation" x="1655.2" y="131.52709359605913"/>
         </scene>
         <!--MagicDetailViewController-->
         <scene sceneID="9DJ-S5-gJS">
@@ -1109,9 +1103,6 @@
                                     <constraint firstAttribute="width" constant="58" id="kX4-Ln-mgy"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="2ndPageBackArrowButton"/>
-                                <connections>
-                                    <segue destination="ZkK-W3-Sc1" kind="show" id="hrG-ud-DtI"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2ndPage1stBannerAllPages" translatesAutoresizingMaskIntoConstraints="NO" id="zfQ-QZ-GTA">
                                 <rect key="frame" x="20" y="414" width="335" height="220"/>
@@ -1120,7 +1111,7 @@
                                     <constraint firstAttribute="height" constant="220" id="XUm-7J-Ewh"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kUH-jZ-PuA">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kUH-jZ-PuA">
                                 <rect key="frame" x="38" y="426" width="299" height="195"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -1238,7 +1229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AWC-KU-fWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928.8" y="131.52709359605913"/>
+            <point key="canvasLocation" x="2871.1999999999998" y="131.52709359605913"/>
         </scene>
         <!--AdventureViewController-->
         <scene sceneID="BSE-C7-dwz">
@@ -1424,15 +1415,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g0l-t5-iLQ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Adventure" image="AdventureIcon" id="yHg-mS-UEN"/>
+                    <navigationItem key="navigationItem" id="FlS-OB-zag"/>
                     <connections>
                         <outlet property="tableView" destination="KGQ-yL-lXB" id="gjg-Et-auT"/>
-                        <segue destination="2Y4-h5-xkL" kind="showDetail" identifier="adventure2AdventureDetailSegue" id="oov-tQ-d3V"/>
+                        <segue destination="2Y4-h5-xkL" kind="show" identifier="adventure2AdventureDetailSegue" id="oov-tQ-d3V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2CU-ph-HXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712.79999999999995" y="863.79310344827593"/>
+            <point key="canvasLocation" x="1655.2" y="863.79310344827593"/>
         </scene>
         <!--AdventureDetailViewController-->
         <scene sceneID="36q-8o-beS">
@@ -1473,9 +1464,6 @@
                                     <constraint firstAttribute="height" constant="30" id="pDD-Gu-BqE"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="2ndPageBackArrowButton"/>
-                                <connections>
-                                    <segue destination="ZkK-W3-Sc1" kind="show" id="XN0-vU-4yx"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AdvGearName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m73-fb-GgW">
                                 <rect key="frame" x="177" y="135" width="112" height="21"/>
@@ -1534,7 +1522,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q0B-pe-gjJ">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q0B-pe-gjJ">
                                 <rect key="frame" x="30" y="424" width="315" height="92"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1598,7 +1586,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Hb-MH-566" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928.8" y="863.79310344827593"/>
+            <point key="canvasLocation" x="2871.1999999999998" y="863.79310344827593"/>
         </scene>
         <!--TransportViewController-->
         <scene sceneID="rAA-dk-UgV">
@@ -1781,15 +1769,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q1j-rf-aKs"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Transport" image="TransportIcon" id="dPQ-UK-eby"/>
+                    <navigationItem key="navigationItem" id="68H-DL-KGk"/>
                     <connections>
                         <outlet property="tableView" destination="Rnf-gf-gB9" id="sJr-XZ-8I4"/>
-                        <segue destination="Oo3-GU-L0k" kind="showDetail" identifier="transport2TransportDetailSegue" id="zT3-TV-G8b"/>
+                        <segue destination="Oo3-GU-L0k" kind="show" identifier="transport2TransportDetailSegue" id="zT3-TV-G8b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rgu-no-huQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712.79999999999995" y="1607.8817733990149"/>
+            <point key="canvasLocation" x="1655.2" y="1607.8817733990149"/>
         </scene>
         <!--TransportDetailViewController-->
         <scene sceneID="wkJ-3a-PQL">
@@ -1830,9 +1818,6 @@
                                     <constraint firstAttribute="height" constant="30" id="uaq-zM-E7a"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="2ndPageBackArrowButton"/>
-                                <connections>
-                                    <segue destination="ZkK-W3-Sc1" kind="show" id="9Lx-aV-U6K"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TransportName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nl-Mc-gcb">
                                 <rect key="frame" x="177" y="135" width="120" height="21"/>
@@ -1891,7 +1876,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2ndPage1stBannerAllPages" translatesAutoresizingMaskIntoConstraints="NO" id="U7x-hR-mXj">
                                 <rect key="frame" x="16" y="422" width="335" height="112"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="No description has been uploaded to the API for this item." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8Iz-WK-pFO">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="No description has been uploaded to the API for this item." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8Iz-WK-pFO">
                                 <rect key="frame" x="26" y="432" width="315" height="92"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1956,7 +1941,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEq-rJ-rfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928.8" y="1607.8817733990149"/>
+            <point key="canvasLocation" x="2871.1999999999998" y="1607.8817733990149"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="R7G-Ub-xBb">
@@ -1969,16 +1954,111 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="7g9-It-ggR" kind="relationship" relationship="viewControllers" id="aeJ-ZO-Qfi"/>
-                        <segue destination="tK3-Cn-kPE" kind="relationship" relationship="viewControllers" id="p2E-Sn-P0U"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="th7-8O-eab"/>
-                        <segue destination="fUU-xG-vlq" kind="relationship" relationship="viewControllers" id="CLM-em-hgr"/>
-                        <segue destination="wwT-fg-FYe" kind="relationship" relationship="viewControllers" id="tZq-0f-FNs"/>
+                        <segue destination="Jk8-8j-TFM" kind="relationship" relationship="viewControllers" id="aeJ-ZO-Qfi"/>
+                        <segue destination="A7Q-hS-rQd" kind="relationship" relationship="viewControllers" id="p2E-Sn-P0U"/>
+                        <segue destination="CYw-cb-fap" kind="relationship" relationship="viewControllers" id="th7-8O-eab"/>
+                        <segue destination="xh5-FV-F5j" kind="relationship" relationship="viewControllers" id="CLM-em-hgr"/>
+                        <segue destination="man-jb-GaQ" kind="relationship" relationship="viewControllers" id="tZq-0f-FNs"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ps-cV-B6O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-163.19999999999999" y="132.23388305847078"/>
+        </scene>
+        <!--Armor-->
+        <scene sceneID="92u-3m-HUQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jk8-8j-TFM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Armor" image="armorIcon-new" id="6N6-0p-htn"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nLJ-XV-YSv">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7g9-It-ggR" kind="relationship" relationship="rootViewController" id="uax-Ws-OxH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1R1-LM-H5N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="712.79999999999995" y="-1307.1428571428571"/>
+        </scene>
+        <!--Ammo-->
+        <scene sceneID="W9e-nE-b6C">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A7Q-hS-rQd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Ammo" image="ammoIcon" id="USG-J8-qto"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Gav-Ls-INe">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tK3-Cn-kPE" kind="relationship" relationship="rootViewController" id="9ji-G5-mkr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o5U-Aj-lFP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="712.79999999999995" y="-591.13300492610836"/>
+        </scene>
+        <!--Magic-->
+        <scene sceneID="gB0-i3-UKv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CYw-cb-fap" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Magic" image="MagicIcon" id="UWL-wk-0F9"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eDc-Br-69P">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Fdv-zn-d9o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ujU-hB-7eL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="712.79999999999995" y="131.52709359605913"/>
+        </scene>
+        <!--Adventure-->
+        <scene sceneID="wKI-Dg-rla">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xh5-FV-F5j" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Adventure" image="AdventureIcon" id="yHg-mS-UEN"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QmM-FW-uma">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fUU-xG-vlq" kind="relationship" relationship="rootViewController" id="2r9-jd-JzP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iMC-Vg-XC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="712.79999999999995" y="863.79310344827593"/>
+        </scene>
+        <!--Transport-->
+        <scene sceneID="jWR-vX-j8R">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="man-jb-GaQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Transport" image="TransportIcon" id="dPQ-UK-eby"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eiB-Q3-cS9">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wwT-fg-FYe" kind="relationship" relationship="rootViewController" id="Qvx-Uh-XAd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SdV-dJ-g0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="712.79999999999995" y="1607.8817733990149"/>
         </scene>
     </scenes>
     <resources>
@@ -2000,7 +2080,4 @@
         <image name="ammoIcon" width="20" height="30"/>
         <image name="armorIcon-new" width="30" height="22"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="9Lx-aV-U6K"/>
-    </inferredMetricsTieBreakers>
 </document>

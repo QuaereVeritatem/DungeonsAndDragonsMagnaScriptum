@@ -94,7 +94,7 @@ class AdventureViewController: UIViewController, UITableViewDataSource, UITableV
     let adv2Send = advMod[indexPath.row]
     tempMod.append(adv2Send)
     self.advMod[indexPath.row] = adv2Send
-    self.performSegue(withIdentifier: "adv2AdvDetailSegue", sender: self)
+    self.performSegue(withIdentifier: "adventure2AdventureDetailSegue", sender: self)
   }
   
   // MARK: - Segue

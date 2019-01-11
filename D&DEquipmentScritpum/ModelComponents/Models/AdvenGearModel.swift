@@ -14,17 +14,19 @@ struct AdvenGear: Codable {
   let name: String
   let equipCat: String
   let gearCat: String?
+  let toolCat: String?
   let weight: Float64?
   let cost: Cost
   let desc: [String]?
   let url: String
   
-  init(id: String, index: IntegerLiteralType, name: String, equipCat: String, gearCat: String?, weight: Float64?, cost: Cost, desc: [String]?, url: String){
+  init(id: String, index: IntegerLiteralType, name: String, equipCat: String, gearCat: String?, toolCat: String?, weight: Float64?, cost: Cost, desc: [String]?, url: String){
     self.id = id
     self.index = index
     self.name = name
     self.equipCat = equipCat
     self.gearCat = gearCat
+    self.toolCat = toolCat
     self.weight = weight
     self.cost = cost
     self.desc = desc
@@ -37,6 +39,7 @@ struct AdvenGear: Codable {
     case name = "name"
     case equipCat = "equipment_category"
     case gearCat = "gear_category"
+    case toolCat = "tool_category"
     case weight = "weight"
     case cost = "cost"
     case desc = "desc"

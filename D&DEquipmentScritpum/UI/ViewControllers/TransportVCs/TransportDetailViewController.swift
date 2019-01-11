@@ -11,6 +11,9 @@ import UIKit
 class TransportDetailViewController: UIViewController {
 
   var aMod = [MountAll]()
+  // 191-200 & 251-256 is mount
+  // 201-250           is mountequipment
+  
   @IBOutlet weak var page2TranPic: UIImageView!
   @IBOutlet weak var page2TranIndexNum: UILabel!
   @IBOutlet weak var page2TranName: UILabel!
@@ -79,7 +82,17 @@ class TransportDetailViewController: UIViewController {
         page2TranSubEquipType.text! = aMod[0].vehCat
         //do an if let to determine if capacity or weight is used
         //Weight is an integer and Capacity is string
-        page2TranWeightNum.text! = String(describing: aMod[0].capacity!) //+ " " + String(describing: aMod[0].weight)
+        
+        switch aMod[0].index {
+        case 201...250:
+          page2TranWeightNum.text! = String(describing: aMod[0].weight)
+        case 251...256:
+          print("No weight or capacity on this equipment")
+        case 191...200:
+          page2TranWeightNum.text! = String(describing: aMod[0].capacity!)
+        default:
+          print("How did we get here to default?")
+        }
         page2TranCostNum.text! = String(describing: aMod[0].cost.quantity)
         page2TranCostUnit.text! = aMod[0].cost.unit
         if let desc = aMod[0].desc?[0] {

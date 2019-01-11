@@ -30,7 +30,7 @@ class AdventureDetailViewController: UIViewController {
         case "Acid (vial)":
           page2AdvPic.image! = UIImage(imageLiteralResourceName: "acidvial")
         case "Perfume (vial)":
-          page2AdvPic.image! = UIImage(imageLiteralResourceName: "leaperfumevialther")
+          page2AdvPic.image! = UIImage(imageLiteralResourceName: "perfumevial")
         
         default:
           page2AdvPic.image! = UIImage(imageLiteralResourceName: "2ndPagePicPlaceHolder")
@@ -38,7 +38,12 @@ class AdventureDetailViewController: UIViewController {
         page2AdvIndexNum.text! = "#" + String(describing: aMod[0].index)
         page2AdvName.text! = aMod[0].name
         page2AdvEquipType.text! = aMod[0].equipCat
-        page2AdvSubEquipType.text! = aMod[0].gearCat!
+        if aMod[0].index > 160 && (aMod[0].index < 192) {
+          page2AdvSubEquipType.text! = aMod[0].toolCat!
+        } else {
+          page2AdvSubEquipType.text! = aMod[0].gearCat!
+        }
+        
         page2AdvWeightNum.text! = String(describing: aMod[0].weight)
         page2AdvCostNum.text! = String(describing: aMod[0].cost.quantity)
         page2AdvCostUnit.text! = aMod[0].cost.unit
