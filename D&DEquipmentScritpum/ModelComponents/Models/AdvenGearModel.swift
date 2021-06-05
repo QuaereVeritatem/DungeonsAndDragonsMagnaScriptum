@@ -9,19 +9,17 @@
 import Foundation
 
 struct AdvenGear: Codable {
-  let id: String
-  let index: IntegerLiteralType
+  let index: String
   let name: String
-  let equipCat: String
-  let gearCat: String?
+  let equipCat: EquipmentCategory
+  let gearCat: GearCategory?
   let toolCat: String?
   let weight: Float64?
-  let cost: Cost
+  let cost: Cost?
   let desc: [String]?
   let url: String
   
-  init(id: String, index: IntegerLiteralType, name: String, equipCat: String, gearCat: String?, toolCat: String?, weight: Float64?, cost: Cost, desc: [String]?, url: String){
-    self.id = id
+  init(index: String, name: String, equipCat: EquipmentCategory, gearCat: GearCategory?, toolCat: String?, weight: Float64?, cost: Cost?, desc: [String]?, url: String){
     self.index = index
     self.name = name
     self.equipCat = equipCat
@@ -34,7 +32,6 @@ struct AdvenGear: Codable {
   }
   
   enum CodingKeys: String, CodingKey {
-    case id = "_id"
     case index = "index"
     case name = "name"
     case equipCat = "equipment_category"
@@ -46,3 +43,22 @@ struct AdvenGear: Codable {
     case url = "url"
   }
 }
+
+struct AdvGearList: Codable {
+  let index: String
+  let name: String
+  let equipment: [Equipment]
+  
+  init(index: String, name: String, equipment: [Equipment]){
+    self.index = index
+    self.name = name
+    self.equipment = equipment
+  }
+  
+  enum CodingKeys: String, CodingKey {
+    case index = "index"
+    case name = "name"
+    case equipment = "equipment"
+  }
+}
+

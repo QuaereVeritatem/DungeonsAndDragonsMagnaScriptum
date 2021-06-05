@@ -19,20 +19,38 @@ class AmmoDetailViewController: UIViewController {
   @IBOutlet weak var page2AmmoWeightNum: UILabel!
   @IBOutlet weak var page2AmmoCostNum: UILabel!
   @IBOutlet weak var page2AmmoCostUnit: UILabel!
+  @IBAction func BackButton(_ sender: UIButton) {
+    performSegue(withIdentifier: "UnwindToAmmo", sender: self)
+  }
   
   override func viewDidLoad() {
-      super.viewDidLoad()
+    super.viewDidLoad()
     if let className = aMod.last?.name {
       page2AmmoPic.image! = UIImage(imageLiteralResourceName: "\(className)")
-      page2AmmoIndexNum.text! = "#" + String(describing: aMod[0].index)
-      page2AmmoName.text! = aMod[0].name
-      page2EquipType.text! = aMod[0].equipCat
-      page2SubEquipType.text! = aMod[0].gearCat
-      page2AmmoWeightNum.text! = String(describing: aMod[0].weight)
-      page2AmmoCostNum.text! = String(describing: aMod[0].cost.quantity)
-      page2AmmoCostUnit.text! = aMod[0].cost.unit
-      }
-     }
+    } else {
+      // use default image (which has been set on storyboard)
+    }
+    page2AmmoName.text! = aMod[0].name
+    page2EquipType.text! = aMod[0].equipCat.name
+    if let subEquip = aMod[0].gearCat {
+      page2SubEquipType.text! = subEquip.name
+    } else {
+      page2SubEquipType.text! = "Magic"
+    }
+    if let aWeight = aMod[0].weight {
+      page2AmmoWeightNum.text! = String(describing: aWeight) + " lbs"
+    } else {
+      page2AmmoWeightNum.text! = "Unknown"
+    }
+    
+    if let ammoCost = aMod[0].cost {
+      page2AmmoCostNum.text! = String(describing: ammoCost.quantity)
+      page2AmmoCostUnit.text! = " " + ammoCost.unit
+    } else {
+      page2AmmoCostNum.text! = "??"
+      page2AmmoCostUnit.text! = " GP"
+    }
+  }
 }
 
 

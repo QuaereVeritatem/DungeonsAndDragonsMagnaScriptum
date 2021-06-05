@@ -12,16 +12,68 @@ class MagicViewController: UIViewController, UITableViewDataSource, UITableViewD
 
   var mMod = [Magic]()
   var tempMod = [Magic]()
+  var magicUrlList = [MagicList]()
+  var magicUrls = [String]()
   @IBOutlet weak var tableView: UITableView!
-  
+  @IBAction func unwind( _ seg: UIStoryboardSegue) {
+    
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    for loopCount in magicTabArray {
-      let urlString = BaseUrl + "/" + "\(loopCount)"
-      // ****  optional at end will cause program to crash!!!!
-      guard let url = URL(string: urlString) else { return }
-      URLSession.shared.dataTask(with: url) { (data, response, error) in
+    tableView.dataSource = self
+    tableView.delegate = self
+    getMagicList()
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  // MARK: - Functions
+  func getMagicList() {
+    
+    let url = URL(string: magicItemListUrl)
+    URLSession.shared.dataTask(with: url!) { (data, response, error) in
+      if error != nil {
+        print(error!.localizedDescription)
+      }
+      guard let data = data else { return }
+      //Implement JSON decoding and parsing
+      do {
+        let endPointData = try JSONDecoder().decode(MagicList.self, from: data)
+        self.magicUrlList.append(endPointData)
+        DispatchQueue.main.async {
+          self.magicUrls = self.magicListConvert(magicList: self.magicUrlList)
+          self.getMagicModels2ndJsonCall()
+          self.tableView.reloadData()
+        }
+      } catch let jsonError {
+        print(jsonError)
+      }
+    }.resume()
+  }
+  
+  // this will convert the object model armor list into an array of strings for just the urls
+  func magicListConvert(magicList: [MagicList]) -> [String] {
+    // this array will return an array of strings (list of all complete weapon urls {no headers})
+    var listOfW: [String] = [String]()
+    //var wL = wList
+    
+    for oneW in magicUrlList[0].results {
+      let completeUrl = introUrl + oneW.url
+      print("The complete Url is : \(completeUrl)")
+      listOfW.append(completeUrl)
+    }
+    return listOfW
+  }
+  
+  func getMagicModels2ndJsonCall() {
+    
+    for loopCount in magicUrls {
+      let url = URL(string: loopCount)
+      URLSession.shared.dataTask(with: url!) { (data, response, error) in
         if error != nil {
           print(error!.localizedDescription)
         }
@@ -36,13 +88,8 @@ class MagicViewController: UIViewController, UITableViewDataSource, UITableViewD
         } catch let jsonError {
           print(jsonError)
         }
-        }.resume()
+      }.resume()
     }
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
   
   // MARK: - TableView
@@ -62,11 +109,12 @@ class MagicViewController: UIViewController, UITableViewDataSource, UITableViewD
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "magicCellReuseIdentifier") as! MagicTableViewCell
-    if mMod.count < 5 {
+    if mMod.count < 50 {
       // do nothing, JSON hasnt loaded yet
     } else {
       
-      cell.magicName.text! = mMod[indexPath.row].name
+      if let magItemName = mMod[indexPath.row].name {
+      cell.magicName.text = magItemName }
       // this needs to be set to indexpath.row so its not always the same pic!!
       switch mMod[indexPath.row].name {
       case "Orb":
@@ -100,15 +148,24 @@ class MagicViewController: UIViewController, UITableViewDataSource, UITableViewD
       case "Spellbook":
         cell.magicPic.image = UIImage(imageLiteralResourceName: "spellbook")
       default:
-        cell.magicPic.image = UIImage(imageLiteralResourceName: "orb")
+        cell.magicPic.image = UIImage(imageLiteralResourceName: "NoPicture")
       }
       //cell.magicPic.image = UIImage(imageLiteralResourceName: "\(mMod[indexPath.row].name)")
-      cell.magicCategory.text! = mMod[indexPath.row].gearCat
-      cell.magicWeight.text! = String(describing: mMod[indexPath.row].weight)
-      cell.magicCostAndCoinType.text! = String(describing: mMod[indexPath.row].cost.quantity) + " " + mMod[indexPath.row].cost.unit
-      cell.magicItemNum.text! = "#" + String(describing: mMod[indexPath.row].index)
- 
-    }
+      //cell.magicCategory.text! = mMod[indexPath.row].gearCat!.name
+      if let mWeight = mMod[indexPath.row].weight {
+        //cell.magicWeight.text! = String(describing: mMod[indexPath.row].weight)
+        cell.magicWeight.text! = String(describing: mWeight)
+      } else {
+        cell.magicWeight.text! = "N/A"
+      }
+      if let costQU = mMod[indexPath.row].cost {
+        cell.magicCostAndCoinType.text! = String(describing: costQU.quantity) + " " + String(describing: costQU.unit)
+      } else {
+        cell.magicCostAndCoinType.text! = "N/A"
+      }
+      // we are no longer using index #
+      //cell.magicItemNum.text! = "#" + String(describing: mMod[indexPath.row].index)
+      }
     return cell
   }
   

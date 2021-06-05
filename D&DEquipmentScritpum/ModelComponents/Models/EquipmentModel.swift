@@ -9,23 +9,23 @@
 import Foundation
 
 struct Armor: Codable {
-  let id: String
-  let index: IntegerLiteralType
+  let index: String
   let name: String
-  let equipCat: String
-  let armorCat: String
-  let armorClass: ArmorClass
+  let equipCat: EquipmentCategory
+  let desc: [String]?
+  let armorCat: String?
+  let armorClass: ArmorClass?
   let strengthMin: IntegerLiteralType?
   let stealthDisadv: Bool?
-  let weight: Float64
-  let cost: Cost
+  let weight: Float64?
+  let cost: Cost?
   let url: String
   
-  init(id: String, index: IntegerLiteralType, name: String, equipCat: String, armorCat: String, armorClass: ArmorClass, strengthMin: IntegerLiteralType?, stealthDisadv: Bool?, weight: Float64, cost: Cost, url: String){
-    self.id = id
+  init(index: String, name: String, equipCat: EquipmentCategory, desc: [String]?, armorCat: String?, armorClass: ArmorClass?, strengthMin: IntegerLiteralType?, stealthDisadv: Bool?, weight: Float64?, cost: Cost?, url: String){
     self.index = index
     self.name = name
     self.equipCat = equipCat
+    self.desc = desc
     self.armorCat = armorCat
     self.armorClass = armorClass
     self.strengthMin = strengthMin
@@ -36,16 +36,34 @@ struct Armor: Codable {
   }
   
   enum CodingKeys: String, CodingKey {
-    case id = "_id"
     case index = "index"
     case name = "name"
     case equipCat = "equipment_category"
+    case desc = "desc"
     case armorCat = "armor_category"
     case armorClass = "armor_class"
     case strengthMin = "strength"
     case stealthDisadv = "stealth"
     case weight = "weight"
     case cost = "cost"
+    case url = "url"
+  }
+}
+
+struct EquipmentCategory: Codable {
+  let index: String
+  let name: String
+  let url: String
+  
+  init(index: String, name: String, url: String) {
+    self.index = index
+    self.name = name
+    self.url = url
+  }
+  
+  enum CodingKeys: String, CodingKey {
+    case index = "index"
+    case name = "name"
     case url = "url"
   }
 }
@@ -82,3 +100,45 @@ struct Cost: Codable {
     case unit = "unit"
   }
 }
+
+struct ArmorList: Codable {
+  let index: String
+  let name: String
+  let equipment: [Equipment]
+  let url: String
+  
+  init(index: String, name: String, equipment: [Equipment], url: String){
+    self.index = index
+    self.name = name
+    self.equipment = equipment
+    self.url = url
+  }
+  
+  enum CodingKeys: String, CodingKey {
+    case index = "index"
+    case name = "name"
+    case equipment = "equipment"
+    case url = "url"
+  }
+}
+ 
+struct Equipment: Codable {
+  let index: String
+  let name: String
+  let url: String
+  
+  init(index: String, name: String, url: String){
+    self.index = index
+    self.name = name
+    self.url = url
+  }
+
+  enum CodingKeys: String, CodingKey {
+    case index = "index"
+    case name = "name"
+    case url = "url"
+  }
+}
+
+
+  

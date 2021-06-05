@@ -14,39 +14,82 @@ class TransportViewController: UIViewController, UITableViewDelegate, UITableVie
   var tempMod = [MountAll]()
   //var mEqMod = [MountEquip]()
   //var tempEqMod = [MountEquip]()
+  var transportUrlList = [TransportList]()
+  var transportUrls = [String]()
   var totalCount = 0
-  // 191-200 & 251-256 is mount
-  // 201-250           is mountequipment
   @IBOutlet weak var tableView: UITableView!
-  
+  @IBAction func unwind( _ seg: UIStoryboardSegue) {
+    
+  }
   
     override func viewDidLoad() {
       super.viewDidLoad()
-      for loopCount in transportTabArray { // transportTabArray
-        let urlString = BaseUrl + "/" + "\(loopCount)" //this was (loopcount + 1)
-        // ****  optional at end will cause program to crash!!!!
-        guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-          if error != nil {
-            print(error!.localizedDescription)
-          }
-          guard let data = data else { return }
-          //Implement JSON decoding and parsing
-          do {
-             let endPointData = try JSONDecoder().decode(MountAll.self, from: data)
-              self.mMod.append(endPointData)
-              self.totalCount = self.totalCount + 1
-            
-            //self.mMod.append(endPointData)
-            DispatchQueue.main.async {
-              self.tableView.reloadData()
-            }
-          } catch let jsonError {
-              print(jsonError)
-            }
-        }.resume()
-      }
+      tableView.dataSource = self
+      tableView.delegate = self
+      getTransportList()
     }
+  
+  
+  // MARK: - Functions
+  func getTransportList() {
+    
+    let url = URL(string: transportListUrl)
+    URLSession.shared.dataTask(with: url!) { (data, response, error) in
+      if error != nil {
+        print(error!.localizedDescription)
+      }
+      guard let data = data else { return }
+      //Implement JSON decoding and parsing
+      do {
+        let endPointData = try JSONDecoder().decode(TransportList.self, from: data)
+        self.transportUrlList.append(endPointData)
+        DispatchQueue.main.async {
+          self.transportUrls = self.transportListConvert(transportList: self.transportUrlList)
+          self.getTransportModels2ndJsonCall()
+          self.tableView.reloadData()
+        }
+      } catch let jsonError {
+        print(jsonError)
+      }
+    }.resume()
+  }
+  
+  // this will convert the object model armor list into an array of strings for just the urls
+  func transportListConvert(transportList: [TransportList]) -> [String] {
+    // this array will return an array of strings (list of all complete weapon urls {no headers})
+    var listOfW: [String] = [String]()
+    //var wL = wList
+    
+    for oneW in transportUrlList[0].equipment {
+      let completeUrl = introUrl + oneW.url
+      print("The complete Url is : \(completeUrl)")
+      listOfW.append(completeUrl)
+    }
+    return listOfW
+  }
+  
+  func getTransportModels2ndJsonCall() {
+    
+    for loopCount in transportUrls {
+      let url = URL(string: loopCount)
+      URLSession.shared.dataTask(with: url!) { (data, response, error) in
+        if error != nil {
+          print(error!.localizedDescription)
+        }
+        guard let data = data else { return }
+        //Implement JSON decoding and parsing
+        do {
+          let endPointData = try JSONDecoder().decode(MountAll.self, from: data)
+          self.mMod.append(endPointData)
+          DispatchQueue.main.async {
+            self.tableView.reloadData()
+          }
+        } catch let jsonError {
+          print(jsonError)
+        }
+      }.resume()
+    }
+  }
   
   // MARK: - TableView
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -55,17 +98,17 @@ class TransportViewController: UIViewController, UITableViewDelegate, UITableVie
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     var localCount = 5
-    if totalCount < localCount  { // this was localCount - 2
+    if mMod.count < localCount  {
       // do nothing
     } else {
-      localCount = totalCount
+      localCount = mMod.count
     }
     return localCount
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "transportCellReuseIdentifier") as! TransportTableViewCell
-    if totalCount < 5 {
+    if mMod.count < 5 {
       // do nothing, JSON hasnt loaded yet
     } else {
       cell.transportName.text! = mMod[indexPath.row].name
@@ -115,24 +158,37 @@ class TransportViewController: UIViewController, UITableViewDelegate, UITableVie
       case "Galley":
         cell.transportPic.image = UIImage(imageLiteralResourceName: "galley")
       default:
-        cell.transportPic.image = UIImage(imageLiteralResourceName: "2ndPagePicPlaceHolder")
+        cell.transportPic.image = UIImage(imageLiteralResourceName: "NoPicture")
       }
-      cell.transportCategory.text! = mMod[indexPath.row].vehCat
+      if let tranCat = mMod[indexPath.row].vehCat {
+        cell.transportCategory.text! = tranCat
+      } else {
+        cell.transportCategory.text! = "Special Type??"
+      }
       
       //Weight is an integer and Capacity is string
       if let tw = mMod[indexPath.row].weight {
          cell.transportWeight.text! = String(describing: tw)
       } else {
         if let cw = mMod[indexPath.row].capacity {
-            cell.transportWeight.text! = cw
+          cell.transportWeight.text! = cw
+        } else {
+          cell.transportWeight.text! = "N/A"
         }
+        
       }
       
       if let ts = mMod[indexPath.row].speed {
-         cell.transportSpeed.text! = String(describing: ts.quantity) + " " + String(describing: ts.unit)
+        cell.transportSpeed.text! = String(describing: ts.quantity) + " " + String(describing: ts.unit)
+      } else {
+        cell.transportSpeed.text! = "N/A"
       }
-      cell.transportNumCostAndCoinType.text! = String(describing: mMod[indexPath.row].cost.quantity) + " " + mMod[indexPath.row].cost.unit
-      cell.transportItemNum.text! = "#" + String(describing: mMod[indexPath.row].index)
+      
+      if let tNumCU = mMod[indexPath.row].cost {
+        cell.transportNumCostAndCoinType.text! = String(describing: tNumCU.quantity) + " " + tNumCU.unit
+      } else {
+        cell.transportNumCostAndCoinType.text! = "?? GP"
+      }
     }
     return cell
   }

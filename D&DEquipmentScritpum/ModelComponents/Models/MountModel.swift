@@ -10,18 +10,16 @@ import Foundation
 
 // 191-200 & 251-256
 struct Mount: Codable {
-  let id: String
-  let index: IntegerLiteralType
+  let index: String
   let name: String
-  let equipCat: String
+  let equipCat: EquipmentCategory
   let vehCat: String
-  let cost: Cost
+  let cost: Cost?
   let speed: Speed
   let capacity: String
   let url: String
   
-  init(id: String, index: IntegerLiteralType, name: String, equipCat: String, vehCat: String, cost: Cost, speed: Speed, capacity: String, url: String){
-    self.id = id
+  init(index: String, name: String, equipCat: EquipmentCategory, vehCat: String, cost: Cost?, speed: Speed, capacity: String, url: String){
     self.index = index
     self.name = name
     self.equipCat = equipCat
@@ -33,7 +31,6 @@ struct Mount: Codable {
   }
   
   enum CodingKeys: String, CodingKey {
-    case id = "_id"
     case index = "index"
     case name = "name"
     case equipCat = "equipment_category"
@@ -62,18 +59,16 @@ struct Speed: Codable {
 
 // vehicle_category :"Tack, Harness, and Drawn Vehicles"     (starting at 201-250
 struct MountEquip: Codable {
-  let id: String
-  let index: IntegerLiteralType
+  let index: String
   let name: String
   let equipCat: String
   let vehCat: String
-  let cost: Cost
+  let cost: Cost?
   let weight: Float64
   let desc: [String]?
   let url: String
   
-  init(id: String, index: IntegerLiteralType, name: String, equipCat: String, vehCat: String, cost: Cost, weight: Float64, desc: [String]?, url: String){
-    self.id = id
+  init(index: String, name: String, equipCat: String, vehCat: String, cost: Cost?, weight: Float64, desc: [String]?, url: String){
     self.index = index
     self.name = name
     self.equipCat = equipCat
@@ -85,7 +80,6 @@ struct MountEquip: Codable {
   }
   
   enum CodingKeys: String, CodingKey {
-    case id = "_id"
     case index = "index"
     case name = "name"
     case equipCat = "equipment_category"
@@ -99,20 +93,18 @@ struct MountEquip: Codable {
 
 // start MountAll struct here
 struct MountAll: Codable {
-  let id: String
-  let index: IntegerLiteralType
+  let index: String
   let name: String
-  let equipCat: String
-  let vehCat: String
-  let cost: Cost
+  let equipCat: EquipmentCategory
+  let vehCat: String?
+  let cost: Cost?
   let weight: Float64?
   let desc: [String]?
   let speed: Speed?
   let capacity: String?
   let url: String
   
-  init(id: String, index: IntegerLiteralType, name: String, equipCat: String, vehCat: String, cost: Cost, weight: Float64, desc: [String]?, speed: Speed?, capacity: String?, url: String){
-    self.id = id
+  init(index: String, name: String, equipCat: EquipmentCategory, vehCat: String?, cost: Cost?, weight: Float64, desc: [String]?, speed: Speed?, capacity: String?, url: String){
     self.index = index
     self.name = name
     self.equipCat = equipCat
@@ -126,7 +118,6 @@ struct MountAll: Codable {
   }
   
   enum CodingKeys: String, CodingKey {
-    case id = "_id"
     case index = "index"
     case name = "name"
     case equipCat = "equipment_category"
@@ -136,6 +127,27 @@ struct MountAll: Codable {
     case desc = "desc"
     case speed = "speed"
     case capacity = "capacity"
+    case url = "url"
+  }
+}
+
+struct TransportList: Codable {
+  let index: String
+  let name: String
+  let equipment: [Equipment]
+  let url: String
+  
+  init(index: String, name: String, equipment: [Equipment], url: String){
+    self.index = index
+    self.name = name
+    self.equipment = equipment
+    self.url = url
+  }
+  
+  enum CodingKeys: String, CodingKey {
+    case index = "index"
+    case name = "name"
+    case equipment = "equipment"
     case url = "url"
   }
 }

@@ -24,6 +24,9 @@ class TransportDetailViewController: UIViewController {
   @IBOutlet weak var page2TranCostNum: UILabel!
   @IBOutlet weak var page2TranCostUnit: UILabel!
   @IBOutlet weak var page2TranDesc: UITextView!
+  @IBAction func BackButton(_ sender: UIButton) {
+    performSegue(withIdentifier: "UnwindToTransport", sender: self)
+  }
   
   
     override func viewDidLoad() {
@@ -74,27 +77,40 @@ class TransportDetailViewController: UIViewController {
         case "Galley":
           page2TranPic.image! = UIImage(imageLiteralResourceName: "galley")
         default:
-          page2TranPic.image! = UIImage(imageLiteralResourceName: "2ndPagePicPlaceHolder")
+          page2TranPic.image! = UIImage(imageLiteralResourceName: "NoPicture")
         }
-        page2TranIndexNum.text! = "#" + String(describing: aMod[0].index)
-        page2TranName.text! = aMod[0].name
-        page2TranEquipType.text! = aMod[0].equipCat
-        page2TranSubEquipType.text! = aMod[0].vehCat
-        //do an if let to determine if capacity or weight is used
-        //Weight is an integer and Capacity is string
         
-        switch aMod[0].index {
-        case 201...250:
-          page2TranWeightNum.text! = String(describing: aMod[0].weight)
-        case 251...256:
-          print("No weight or capacity on this equipment")
-        case 191...200:
-          page2TranWeightNum.text! = String(describing: aMod[0].capacity!)
-        default:
-          print("How did we get here to default?")
+        page2TranName.text! = aMod[0].name
+        page2TranEquipType.text! = aMod[0].equipCat.name
+        
+        if let tranCat = aMod[0].vehCat {
+          page2TranSubEquipType.text! = tranCat
+        } else {
+          page2TranSubEquipType.text! = "Special Type??"
         }
-        page2TranCostNum.text! = String(describing: aMod[0].cost.quantity)
-        page2TranCostUnit.text! = aMod[0].cost.unit
+        
+        if let tranWeight = aMod[0].weight {
+          page2TranWeightCapacityLabel.text! = "Weight: "
+          page2TranWeightNum.text! = String(describing: tranWeight)
+        } else {
+          if let tranSpeed = aMod[0].speed {
+            page2TranWeightCapacityLabel.text! = "Speed: "
+            page2TranWeightNum.text! = String(describing: tranSpeed.quantity) + " " + tranSpeed.unit
+          }
+         else {
+          page2TranWeightCapacityLabel.text! = "Weight/Speed: "
+          page2TranWeightNum.text! = "??"
+         }
+        }
+        
+        if let tranCostNU = aMod[0].cost {
+          page2TranCostNum.text! = String(describing: tranCostNU.quantity)
+          page2TranCostUnit.text! = tranCostNU.unit
+        } else {
+          page2TranCostNum.text! = "?? "
+          page2TranCostUnit.text! = "GP"
+        }
+        
         if let desc = aMod[0].desc?[0] {
           page2TranDesc.text! = desc 
         }

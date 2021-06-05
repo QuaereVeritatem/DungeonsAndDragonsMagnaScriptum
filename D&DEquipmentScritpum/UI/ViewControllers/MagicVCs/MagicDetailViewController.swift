@@ -20,6 +20,9 @@ class MagicDetailViewController: UIViewController {
   @IBOutlet weak var page2MagicCostNum: UILabel!
   @IBOutlet weak var page2MagicCostUnit: UILabel!
   @IBOutlet weak var page2MagicDesc: UITextView!
+  @IBAction func BackButton(_ sender: UIButton) {
+    performSegue(withIdentifier: "UnwindToMagic", sender: self)
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -56,18 +59,42 @@ class MagicDetailViewController: UIViewController {
       case "Spellbook":
         page2MagicPic.image! = UIImage(imageLiteralResourceName: "spellbook")
       default:
-        page2MagicPic.image! = UIImage(imageLiteralResourceName: "orb")
+        page2MagicPic.image! = UIImage(imageLiteralResourceName: "NoPicture")
       }
       //page2MagicPic.image! = UIImage(imageLiteralResourceName: "hide")
-      page2MagicIndexNum.text! = "#" + String(describing: aMod[0].index)
-      page2MagicName.text! = aMod[0].name
-      page2EquipType.text! = aMod[0].equipCat
-      page2SubEquipType.text! = aMod[0].gearCat
-      page2MagicWeightNum.text! = String(describing: aMod[0].weight)
-      page2MagicCostNum.text! = String(describing: aMod[0].cost.quantity)
-      page2MagicCostUnit.text! = aMod[0].cost.unit
-      page2MagicDesc.text! = aMod[0].desc[0]
+      
+      // we are no longer using index #
+      //page2MagicIndexNum.text! = "#" + String(describing: aMod[0].index)
+      page2MagicName.text! = className
+      page2EquipType.text! = aMod[0].equipCat!.name
+      
+      if let subEquip = aMod[0].gearCat {
+        page2SubEquipType.text! = subEquip.name
+      } else {
+        page2SubEquipType.text! = "Magic"
+      }
+      
+      if let mWeight = aMod[0].weight {
+        page2MagicWeightNum.text! = String(describing: mWeight)
+      } else {
+        page2MagicWeightNum.text! = "??? lbs"
+      }
+      
+      if let costQ = aMod[0].cost {
+        page2MagicCostNum.text! = String(describing: costQ.quantity)
+        page2MagicCostUnit.text! = costQ.unit
+      }
+      
+      if let mDesc = aMod[0].desc?[0] {
+        var tempString: [String] = [String]()
+        var tempChar: String = String()
+        for loop in aMod[0].desc! {
+          tempString.append(loop)
+          tempChar.append(loop)
+        }
+        page2MagicDesc.text! = tempChar
+      }
     }
-    }
+  }
 
 }

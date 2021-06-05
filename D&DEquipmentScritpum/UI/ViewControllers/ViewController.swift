@@ -8,7 +8,7 @@
 // armorVC, AmmoVC, MagicVC, AdventureVC, TransportVC
 // armorDetailVC, AmmoDetailVC, MagicDetailVC, AdventureDetailVC, TransportDetailVC
 import UIKit
-
+/*
 class ViewController: UIViewController {
   
   var aMod = [Armor]()
@@ -59,3 +59,4 @@ class ViewController: UIViewController {
 
 }
 
+*/
